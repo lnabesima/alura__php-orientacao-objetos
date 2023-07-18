@@ -4,21 +4,18 @@ class Conta
 {
     private string $cpfTitular;
     private string $nomeTitular;
-    private float $saldo = 0;
+    private float $saldo;
 
-    public function definirCpfTitular(string $cpf): void
+    public function __construct(string $cpfTitular, string $nomeTitular)
     {
-        $this->cpfTitular = $cpf;
+        $this->cpfTitular = $cpfTitular;
+        $this->nomeTitular = $nomeTitular;
+        $this->saldo = 0;
     }
 
     public function exibirCpfTitular(): string
     {
         return $this->cpfTitular;
-    }
-
-    public function definirNomeTitular(string $nome): void
-    {
-        $this->nomeTitular=$nome;
     }
 
     public function exibirNomeTitular(): string
