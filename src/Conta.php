@@ -2,18 +2,33 @@
 
 class Conta
 {
-    public string $cpfTitular;
-    public string $nomeTitular;
-    public float $saldo = 0;
+    private string $cpfTitular;
+    private string $nomeTitular;
+    private float $saldo = 0;
 
-    public function transferir(float $valorATransferir, Conta $contaDestino): void
+    public function definirCpfTitular(string $cpf): void
     {
-        if ($valorATransferir > $this->saldo) {
-            echo "Saldo insuficiente para esta operação.";
-            return;
-        }
-        $this->sacar($valorATransferir);
-        $contaDestino->depositar($valorATransferir);
+        $this->cpfTitular = $cpf;
+    }
+
+    public function exibirCpfTitular(): string
+    {
+        return $this->cpfTitular;
+    }
+
+    public function definirNomeTitular(string $nome): void
+    {
+        $this->nomeTitular=$nome;
+    }
+
+    public function exibirNomeTitular(): string
+    {
+        return $this->nomeTitular;
+    }
+
+    public function exibirSaldo(): float
+    {
+        return $this->saldo;
     }
 
     public function sacar(float $valorASacar): void
@@ -32,5 +47,15 @@ class Conta
             return;
         }
         $this->saldo += $valorADepositar;
+    }
+
+    public function transferir(float $valorATransferir, Conta $contaDestino): void
+    {
+        if ($valorATransferir > $this->saldo) {
+            echo "Saldo insuficiente para esta operação.";
+            return;
+        }
+        $this->sacar($valorATransferir);
+        $contaDestino->depositar($valorATransferir);
     }
 }
