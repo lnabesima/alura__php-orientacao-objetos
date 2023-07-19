@@ -4,12 +4,19 @@ class Titular
 {
     private Cpf $cpf;
     private string $nome;
+    private Endereco $endereco;
 
-    public function __construct(Cpf $cpf, string $nome)
+    public function __construct(Cpf $cpf, string $nome, Endereco $endereco)
     {
         $this->cpf = $cpf;
         $this->validarNomeDoTitular($nome);
         $this->nome = $nome;
+        $this->endereco = $endereco;
+    }
+
+    public function exibirEndereco(): Endereco
+    {
+        return $this->endereco;
     }
     public function exibirCpf(): string
     {
