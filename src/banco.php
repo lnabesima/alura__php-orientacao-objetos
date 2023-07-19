@@ -1,8 +1,10 @@
 <?php
 require_once './Conta.php';
-require_once './Titular.php';
 require_once './Cpf.php';
+require_once './Pessoa.php';
 require_once './Endereco.php';
+require_once  "./Titular.php";
+require_once './Funcionario.php';
 
 $endereco = new Endereco('SP', 'São Paulo', 'Centro', 'Av. Brasil', '100');
 $conta1 = new Conta(new Titular(new Cpf('123.456.789-01'), 'Lucas Nabesima', $endereco));
@@ -14,3 +16,6 @@ var_dump($conta1);
 $conta2 = new Conta(new Titular(new Cpf('987.654.321-10'), 'Adriani', $endereco));
 
 echo Conta::exibirQuantidadeDeContas();
+
+$funcionario = new Funcionario('Thiago', new Cpf('123.456.789-99'), 'Peão de Obra');
+var_dump($funcionario);
