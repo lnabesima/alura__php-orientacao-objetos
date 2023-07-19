@@ -2,18 +2,20 @@
 
 class Conta
 {
-    private string $cpfTitular;
-    private string $nomeTitular;
-    private float $saldo;
     private static int $quantidadeDeContas = 0;
+    private Titular $titular;
+    private float $saldo;
 
-    public function __construct(string $cpfTitular, string $nomeTitular)
+    public function __construct(Titular $titular)
     {
-        $this->cpfTitular = $cpfTitular;
-        $this->validarNomeDoTitular($nomeTitular);
-        $this->nomeTitular = $nomeTitular;
+        $this->titular = $titular;
         $this->saldo = 0;
         self::$quantidadeDeContas++;
+    }
+
+    public static function exibirQuantidadeDeContas(): int
+    {
+        return self::$quantidadeDeContas;
     }
 
     public function __destruct()
@@ -21,32 +23,19 @@ class Conta
         self::$quantidadeDeContas--;
     }
 
-    private function validarNomeDoTitular(string $nome): void
+    public function exibirNomeTitular(): string
     {
-        if (strlen($nome) < 5) {
-            echo "O nome do titular precisa ter ao menos cinco caracteres." . PHP_EOL;
-            exit();
-        }
+        return $this->titular->exibirNome();
     }
 
     public function exibirCpfTitular(): string
     {
-        return $this->cpfTitular;
-    }
-
-    public function exibirNomeTitular(): string
-    {
-        return $this->nomeTitular;
+        return $this->titular->exibirCpf();
     }
 
     public function exibirSaldo(): float
     {
         return $this->saldo;
-    }
-
-    public static function exibirQuantidadeDeContas(): int
-    {
-        return self::$quantidadeDeContas;
     }
 
     public function transferir(float $valorATransferir, Conta $contaDestino): void
