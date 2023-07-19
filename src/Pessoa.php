@@ -2,8 +2,8 @@
 
 class Pessoa
 {
-    public string $nome;
-    public Cpf $cpf;
+    protected string $nome;
+    private Cpf $cpf;
 
     public function __construct(string $nome, Cpf $cpf){
         $this->validarNomeDoTitular($nome);
@@ -22,7 +22,7 @@ class Pessoa
         return $this->cpf->exibirCpf();
     }
 
-    public function validarNomeDoTitular(string $nome): void
+    protected function validarNomeDoTitular(string $nome): void
     {
         if (strlen($nome) < 5) {
             echo "O nome do titular precisa ter ao menos cinco caracteres." . PHP_EOL;

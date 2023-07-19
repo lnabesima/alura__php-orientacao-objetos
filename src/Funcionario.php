@@ -9,9 +9,13 @@ class Funcionario extends Pessoa
         $this->cargo = $cargo;
     }
 
-
     public function exibirCargo(): string
     {
         return $this->cargo;
+    }
+
+    public function alteraNomeDoFuncionario(string $nome): void{
+        $this->validarNomeDoTitular($nome);
+        $this->nome = $nome;
     }
 }
