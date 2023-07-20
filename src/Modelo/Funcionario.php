@@ -1,4 +1,7 @@
 <?php
+
+namespace Alura\Banco\Modelo;
+
 class Funcionario extends Pessoa
 {
     private string $cargo;
@@ -14,7 +17,8 @@ class Funcionario extends Pessoa
         return $this->cargo;
     }
 
-    public function alteraNomeDoFuncionario(string $nome): void{
+    public function alteraNomeDoFuncionario(string $nome): void
+    {
         $this->validarNomeDoTitular($nome);
         $this->nome = $nome;
     }
