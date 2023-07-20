@@ -3,9 +3,9 @@ require_once './autoloader.php';
 
 
 use Alura\Banco\Modelo\{Cpf, Endereco, Funcionario};
-use Alura\Banco\Modelo\Conta\{Conta, Titular};
+use Alura\Banco\Modelo\Conta\{Conta, ContaPoupanca, Titular};
 
-$conta1 = new Conta(new Titular(new Cpf('123.456.789-01'), 'Lucas Nabesima', new Endereco('SP',
+$conta1 = new ContaPoupanca(new Titular(new Cpf('123.456.789-01'), 'Lucas Nabesima', new Endereco('SP',
     "São Paulo", "Lapa", "Rua X", "1")));
 echo $conta1->exibirSaldo() . PHP_EOL;
 echo $conta1->exibirNomeTitular() . PHP_EOL;
