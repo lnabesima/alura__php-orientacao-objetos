@@ -3,7 +3,7 @@ require_once './autoloader.php';
 
 
 use Alura\Banco\Modelo\{Cpf, Endereco, Funcionario};
-use Alura\Banco\Modelo\Conta\{Conta, ContaPoupanca, Titular};
+use Alura\Banco\Modelo\Conta\{ContaCorrente, ContaPoupanca, Titular};
 
 $conta1 = new ContaPoupanca(new Titular(new Cpf('123.456.789-01'), 'Lucas Nabesima', new Endereco('SP',
     "São Paulo", "Lapa", "Rua X", "1")));
@@ -16,7 +16,7 @@ echo $conta1->exibirSaldo() . PHP_EOL;
 
 //var_dump($conta1);
 
-$conta2 = new Conta(new Titular(new Cpf('987.654.321-10'), 'Adriani', new Endereco('SP',
+$conta2 = new ContaCorrente(new Titular(new Cpf('987.654.321-10'), 'Adriani', new Endereco('SP',
     "São Paulo", "Lapa", "Rua X", "1")));
 
 //echo Conta::exibirQuantidadeDeContas();

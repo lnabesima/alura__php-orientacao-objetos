@@ -2,7 +2,7 @@
 
 namespace Alura\Banco\Modelo\Conta;
 
-class Conta
+abstract class Conta
 {
     private static int $quantidadeDeContas = 0;
     private Titular $titular;
@@ -40,19 +40,9 @@ class Conta
         return $this->saldo;
     }
 
-    public function transferir(float $valorATransferir, Conta $contaDestino): void
-    {
-        if ($valorATransferir > $this->saldo) {
-            echo "Saldo insuficiente para esta operação.";
-            return;
-        }
-        $this->sacar($valorATransferir);
-        $contaDestino->depositar($valorATransferir);
-    }
-
     public function sacar(float $valorASacar): void
     {
-        $taxaSaque = $valorASacar * 0.05;
+        $taxaSaque = $valorASacar * $this->tarifaDeSaque();
         $valorSaque = $valorASacar + $taxaSaque;
         if ($valorSaque > $this->saldo) {
             echo "Saldo insuficiente para realizar esta operação.";
@@ -69,4 +59,6 @@ class Conta
         }
         $this->saldo += $valorADepositar;
     }
+
+    abstract protected function tarifaDeSaque(): float;
 }
