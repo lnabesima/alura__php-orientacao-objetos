@@ -52,11 +52,13 @@ class Conta
 
     public function sacar(float $valorASacar): void
     {
-        if ($valorASacar > $this->saldo) {
+        $taxaSaque = $valorASacar * 0.05;
+        $valorSaque = $valorASacar + $taxaSaque;
+        if ($valorSaque > $this->saldo) {
             echo "Saldo insuficiente para realizar esta operação.";
             return;
         }
-        $this->saldo -= $valorASacar;
+        $this->saldo -= $valorSaque;
     }
 
     public function depositar(float $valorADepositar): void
