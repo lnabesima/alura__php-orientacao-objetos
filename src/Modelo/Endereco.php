@@ -58,11 +58,7 @@ final class Endereco
         return $this->numeroDaCasa;
     }
 
-    public function __get(string $nomeAtributo)
-    {
-        $metodo = "exibe" . ucfirst($nomeAtributo);
-        return $this->$metodo();
-    }
+    use AcessoPropriedades;
 
     public function __set(string $nomeAtributo, string $valorAAtualizar): void
     {
