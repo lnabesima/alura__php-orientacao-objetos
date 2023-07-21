@@ -13,3 +13,8 @@ $endereco1 = new Endereco(
 );
 
 echo $endereco1 . PHP_EOL;
+
+$endereco1->cidade = "Maringá";
+$endereco1->bairro = "Vila Sésamo";
+
+echo $endereco1;
