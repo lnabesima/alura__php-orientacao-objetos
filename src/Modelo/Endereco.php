@@ -19,6 +19,11 @@ class Endereco
         $this->numeroDaCasa = $numeroDaCasa;
     }
 
+    public function __toString(): string
+    {
+        return "{$this->logradouro} {$this->numeroDaCasa}, {$this->bairro}, {$this->cidade}, {$this->estado}";
+    }
+
     public function exibirEstado(): string
     {
         return $this->estado;
