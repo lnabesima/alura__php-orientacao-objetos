@@ -11,7 +11,7 @@ namespace Alura\Banco\Modelo;
  * @property string $logradouro
  * @property string $numeroDaCasa
  */
-class Endereco
+final class Endereco
 {
     private string $estado;
     private string $cidade;

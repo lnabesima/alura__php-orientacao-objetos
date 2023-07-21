@@ -25,7 +25,7 @@ abstract class Pessoa
         return $this->cpf->exibirCpf();
     }
 
-    protected function validarNomeDoTitular(string $nome): void
+    final protected function validarNomeDoTitular(string $nome): void
     {
         if (strlen($nome) < 5) {
             echo "O nome do titular precisa ter ao menos cinco caracteres." . PHP_EOL;
