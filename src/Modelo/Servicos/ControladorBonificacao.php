@@ -2,7 +2,7 @@
 
 namespace Alura\Banco\Modelo\Servicos;
 
-use Alura\Banco\Modelo\Funcionario;
+use Alura\Banco\Modelo\Funcionario\Funcionario;
 
 class ControladorBonificacao
 {
